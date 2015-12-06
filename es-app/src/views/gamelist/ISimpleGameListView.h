@@ -35,4 +35,5 @@ protected:
 	ThemeExtras mThemeExtras;
 
 	std::stack<FileData*> mCursorStack;
+	bool favorites;
 };

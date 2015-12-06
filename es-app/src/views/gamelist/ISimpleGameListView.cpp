@@ -102,6 +102,22 @@ bool ISimpleGameListView::input(InputConfig* config, Input input)
 				ViewController::get()->goToPrevGameList();
 				return true;
 			}
+		}else if(config->isMappedTo("start", input))
+		{
+			std::vector<FileData*> allFiles = cursor->getParent()->getChildren();
+			if(favorites)
+			{
+				populateList(allFiles);
+				return true;
+			} else {
+				std::vector<FileData*> filteredFiles;
+				for (std::vector<FileData*>::iterator it = allFiles.begin(); it != allFiles.end(); ++it) {
+    				if (it->getName()[i] == 'b') {
+						filteredFiles->push_back(it);
+					}
+				}
+			}
+			favorites = !favorites;
 		}
 	}
 
